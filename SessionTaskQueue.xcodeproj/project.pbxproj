@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1C08BAD020132E41002EE671 /* AUUAsyncBlockOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C08BACE20132E41002EE671 /* AUUAsyncBlockOperation.h */; };
+		1C08BAD020132E41002EE671 /* AUUAsyncBlockOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C08BACE20132E41002EE671 /* AUUAsyncBlockOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1C08BAD120132E41002EE671 /* AUUAsyncBlockOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C08BACF20132E41002EE671 /* AUUAsyncBlockOperation.m */; };
 		1C51712E2010F3BC004C8401 /* SessionTaskQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C51712C2010F3BC004C8401 /* SessionTaskQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1C5171342010F3EB004C8401 /* AUUSessionTaskOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C5171322010F3EB004C8401 /* AUUSessionTaskOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -147,8 +147,8 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1C08BAD020132E41002EE671 /* AUUAsyncBlockOperation.h in Headers */,
 				1C5171342010F3EB004C8401 /* AUUSessionTaskOperation.h in Headers */,
+				1C08BAD020132E41002EE671 /* AUUAsyncBlockOperation.h in Headers */,
 				1C51713C2010F4CF004C8401 /* AUUSessionTaskQueue.h in Headers */,
 				1C51712E2010F3BC004C8401 /* SessionTaskQueue.h in Headers */,
 			);
@@ -370,7 +370,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = SessionTaskQueue/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -434,7 +434,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = SessionTaskQueue/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jyhu.SessionTaskQueue;

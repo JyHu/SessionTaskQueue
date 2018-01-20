@@ -14,6 +14,9 @@
  */
 typedef void (^AUUAsyncOperationTask) (BOOL *finished);
 
+/**
+ 带有异步执行任务的block的operation，可以添加到NSOperationQueue中进行管理
+ */
 @interface AUUAsyncBlockOperation : NSOperation
 
 /**
