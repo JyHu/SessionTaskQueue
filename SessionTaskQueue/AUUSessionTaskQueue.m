@@ -8,6 +8,7 @@
 #import "AUUSessionTaskQueue.h"
 #import "AUUSessionTaskOperation.h"
 #import <objc/runtime.h>
+#import "AUUAsyncBlockOperation.h"
 
 @interface NSOperationQueue (_Private)
 #ifdef DEBUG
@@ -58,6 +59,10 @@
 
 - (void)addSessionTask:(NSURLSessionTask *)sessionTask {
     [self addOperation:[AUUSessionTaskOperation operationWithTask:sessionTask]];
+}
+
+- (void)addAsyncOperationWithBlock:(void (^)(BOOL *))asyncBlock {
+    [self addOperation:[AUUAsyncBlockOperation operationWithAsyncTask:asyncBlock]];
 }
 
 - (void)completeOperationWithSessionTask:(NSURLSessionTask *)sessionTask {

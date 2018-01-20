@@ -37,6 +37,14 @@
 + (instancetype)serialQueue;
 
 /**
+ 添加一个带有异步操作的block，
+ 原生的`addOperationWithBlock`只能添加block里的同步任务
+
+ @param asyncBlock 需要包含异步操作的block
+ */
+- (void)addAsyncOperationWithBlock:(void (^)(BOOL *finished))asyncBlock;
+
+/**
  添加一个task到当前的队列中，自动的为其生成一条operation
 
  @param sessionTask task

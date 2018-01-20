@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C08BAD020132E41002EE671 /* AUUAsyncBlockOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C08BACE20132E41002EE671 /* AUUAsyncBlockOperation.h */; };
+		1C08BAD120132E41002EE671 /* AUUAsyncBlockOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C08BACF20132E41002EE671 /* AUUAsyncBlockOperation.m */; };
 		1C51712E2010F3BC004C8401 /* SessionTaskQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C51712C2010F3BC004C8401 /* SessionTaskQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1C5171342010F3EB004C8401 /* AUUSessionTaskOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C5171322010F3EB004C8401 /* AUUSessionTaskOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1C5171352010F3EB004C8401 /* AUUSessionTaskOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5171332010F3EB004C8401 /* AUUSessionTaskOperation.m */; };
@@ -47,6 +49,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1C08BACE20132E41002EE671 /* AUUAsyncBlockOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AUUAsyncBlockOperation.h; sourceTree = "<group>"; };
+		1C08BACF20132E41002EE671 /* AUUAsyncBlockOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AUUAsyncBlockOperation.m; sourceTree = "<group>"; };
 		1C5171292010F3BC004C8401 /* SessionTaskQueue.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SessionTaskQueue.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C51712C2010F3BC004C8401 /* SessionTaskQueue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SessionTaskQueue.h; sourceTree = "<group>"; };
 		1C51712D2010F3BC004C8401 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -111,6 +115,8 @@
 				1C51712C2010F3BC004C8401 /* SessionTaskQueue.h */,
 				1C51713A2010F4CF004C8401 /* AUUSessionTaskQueue.h */,
 				1C51713B2010F4CF004C8401 /* AUUSessionTaskQueue.m */,
+				1C08BACE20132E41002EE671 /* AUUAsyncBlockOperation.h */,
+				1C08BACF20132E41002EE671 /* AUUAsyncBlockOperation.m */,
 				1C5171322010F3EB004C8401 /* AUUSessionTaskOperation.h */,
 				1C5171332010F3EB004C8401 /* AUUSessionTaskOperation.m */,
 				1C51712D2010F3BC004C8401 /* Info.plist */,
@@ -141,6 +147,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C08BAD020132E41002EE671 /* AUUAsyncBlockOperation.h in Headers */,
 				1C5171342010F3EB004C8401 /* AUUSessionTaskOperation.h in Headers */,
 				1C51713C2010F4CF004C8401 /* AUUSessionTaskQueue.h in Headers */,
 				1C51712E2010F3BC004C8401 /* SessionTaskQueue.h in Headers */,
@@ -249,6 +256,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C08BAD120132E41002EE671 /* AUUAsyncBlockOperation.m in Sources */,
 				1C51713D2010F4CF004C8401 /* AUUSessionTaskQueue.m in Sources */,
 				1C5171352010F3EB004C8401 /* AUUSessionTaskOperation.m in Sources */,
 			);

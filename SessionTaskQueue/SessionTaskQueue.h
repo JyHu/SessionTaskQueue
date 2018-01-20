@@ -8,6 +8,7 @@
 #import <UIKit/UIKit.h>
 #import "AUUSessionTaskQueue.h"
 #import "AUUSessionTaskOperation.h"
+#import "AUUAsyncBlockOperation.h"
 
 //! Project version number for SessionTaskQueue.
 FOUNDATION_EXPORT double SessionTaskQueueVersionNumber;
