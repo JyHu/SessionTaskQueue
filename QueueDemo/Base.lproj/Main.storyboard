@@ -67,15 +67,29 @@
                                     <action selector="partTempSerial:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eMQ-qZ-1BY"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="niO-XI-xk9">
+                                <rect key="frame" x="20" y="324" width="335" height="60"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="aAw-7d-Lae"/>
+                                </constraints>
+                                <state key="normal" title="Concurrent Dependency"/>
+                                <connections>
+                                    <action selector="testDependency:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dQM-7j-NhG"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="USp-qH-OKn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="29u-t4-J9c"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="GGn-Yw-Hzs" secondAttribute="trailing" constant="20" id="2C9-q5-C8K"/>
+                            <constraint firstItem="niO-XI-xk9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="7Hg-re-DO3"/>
                             <constraint firstItem="GGn-Yw-Hzs" firstAttribute="top" secondItem="USp-qH-OKn" secondAttribute="bottom" constant="20" id="7PU-ga-0is"/>
                             <constraint firstItem="ix7-9E-K2J" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="Aqo-OY-GLM"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="niO-XI-xk9" secondAttribute="trailing" constant="20" id="Kr6-rj-i5E"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ix7-9E-K2J" secondAttribute="trailing" constant="20" id="Nj1-3w-lgN"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="USp-qH-OKn" secondAttribute="trailing" constant="20" id="dGu-E8-qhi"/>
+                            <constraint firstItem="niO-XI-xk9" firstAttribute="top" secondItem="GGn-Yw-Hzs" secondAttribute="bottom" constant="20" id="sWy-Ch-8Ln"/>
                             <constraint firstItem="GGn-Yw-Hzs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="vV1-5j-mqZ"/>
                             <constraint firstItem="ix7-9E-K2J" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="whf-wu-o8n"/>
                             <constraint firstItem="USp-qH-OKn" firstAttribute="top" secondItem="ix7-9E-K2J" secondAttribute="bottom" constant="20" id="xlH-v4-bvH"/>
@@ -86,7 +100,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-385" y="63"/>
+            <point key="canvasLocation" x="-247" y="63"/>
         </scene>
     </scenes>
 </document>

@@ -7,6 +7,11 @@
 
 #import <Foundation/Foundation.h>
 
+typedef NS_ENUM(NSUInteger, AUUOperationQueueObserverType) {
+    AUUOperationQueueObserverTypeOperationChanged,
+    AUUOperationQueueObserverTypeAllCompleted,
+};
+
 @class AUUSessionTaskOperation;
 
 @interface NSOperationQueue (AUUSessionTaskOperation)
@@ -77,6 +82,9 @@
  取消所有的网络请求
  */
 - (void)cancelAllSessionTaskOperations;
+
+- (void)addObserverWithType:(AUUOperationQueueObserverType)type observerBlock:(void (^)(NSOperationQueue *queue))observerBlock;
+- (void)addObserverWithType:(AUUOperationQueueObserverType)type observerTarget:(id)target action:(SEL)action;
 
 @end
 

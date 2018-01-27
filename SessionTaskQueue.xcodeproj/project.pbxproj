@@ -22,6 +22,10 @@
 		1C5171542010F8E6004C8401 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5171532010F8E6004C8401 /* main.m */; };
 		1C5171582010F8FA004C8401 /* SessionTaskQueue.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C5171292010F3BC004C8401 /* SessionTaskQueue.framework */; };
 		1C5171592010F8FA004C8401 /* SessionTaskQueue.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1C5171292010F3BC004C8401 /* SessionTaskQueue.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1C6EAFC32018CCD3008BD5DF /* _AUUOperationQueueHolder.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C6EAFC12018CCD3008BD5DF /* _AUUOperationQueueHolder.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		1C6EAFC42018CCD3008BD5DF /* _AUUOperationQueueHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6EAFC22018CCD3008BD5DF /* _AUUOperationQueueHolder.m */; };
+		1C6EAFC72018D090008BD5DF /* NSOperation+AUUDependency.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C6EAFC52018D090008BD5DF /* NSOperation+AUUDependency.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1C6EAFC82018D090008BD5DF /* NSOperation+AUUDependency.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6EAFC62018D090008BD5DF /* NSOperation+AUUDependency.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +72,10 @@
 		1C5171502010F8E6004C8401 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1C5171522010F8E6004C8401 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1C5171532010F8E6004C8401 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1C6EAFC12018CCD3008BD5DF /* _AUUOperationQueueHolder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _AUUOperationQueueHolder.h; sourceTree = "<group>"; };
+		1C6EAFC22018CCD3008BD5DF /* _AUUOperationQueueHolder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _AUUOperationQueueHolder.m; sourceTree = "<group>"; };
+		1C6EAFC52018D090008BD5DF /* NSOperation+AUUDependency.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSOperation+AUUDependency.h"; sourceTree = "<group>"; };
+		1C6EAFC62018D090008BD5DF /* NSOperation+AUUDependency.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSOperation+AUUDependency.m"; sourceTree = "<group>"; };
 		1C7B364B2011969200112178 /* SessionTaskQueue.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SessionTaskQueue.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -119,6 +127,10 @@
 				1C08BACF20132E41002EE671 /* AUUAsyncBlockOperation.m */,
 				1C5171322010F3EB004C8401 /* AUUSessionTaskOperation.h */,
 				1C5171332010F3EB004C8401 /* AUUSessionTaskOperation.m */,
+				1C6EAFC52018D090008BD5DF /* NSOperation+AUUDependency.h */,
+				1C6EAFC62018D090008BD5DF /* NSOperation+AUUDependency.m */,
+				1C6EAFC12018CCD3008BD5DF /* _AUUOperationQueueHolder.h */,
+				1C6EAFC22018CCD3008BD5DF /* _AUUOperationQueueHolder.m */,
 				1C51712D2010F3BC004C8401 /* Info.plist */,
 			);
 			path = SessionTaskQueue;
@@ -150,7 +162,9 @@
 				1C5171342010F3EB004C8401 /* AUUSessionTaskOperation.h in Headers */,
 				1C08BAD020132E41002EE671 /* AUUAsyncBlockOperation.h in Headers */,
 				1C51713C2010F4CF004C8401 /* AUUSessionTaskQueue.h in Headers */,
+				1C6EAFC72018D090008BD5DF /* NSOperation+AUUDependency.h in Headers */,
 				1C51712E2010F3BC004C8401 /* SessionTaskQueue.h in Headers */,
+				1C6EAFC32018CCD3008BD5DF /* _AUUOperationQueueHolder.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,9 +270,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C6EAFC82018D090008BD5DF /* NSOperation+AUUDependency.m in Sources */,
 				1C08BAD120132E41002EE671 /* AUUAsyncBlockOperation.m in Sources */,
 				1C51713D2010F4CF004C8401 /* AUUSessionTaskQueue.m in Sources */,
 				1C5171352010F3EB004C8401 /* AUUSessionTaskOperation.m in Sources */,
+				1C6EAFC42018CCD3008BD5DF /* _AUUOperationQueueHolder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,16 +9,7 @@
 #import "AUUSessionTaskOperation.h"
 #import <objc/runtime.h>
 #import "AUUAsyncBlockOperation.h"
-
-@interface NSOperationQueue (_Private)
-#ifdef DEBUG
-/**
- 测试参数，用以标志是否是串行的队列
- */
-@property (assign, nonatomic) BOOL isSerial;
-#endif
-@end
-
+#import "_AUUOperationQueueHolder.h"
 
 @implementation NSOperationQueue (AUUSessionTaskOperation)
 
@@ -43,7 +34,7 @@
 + (instancetype)serialQueue {
     NSOperationQueue *queue = [self queueWithMaxConcurrentOperationCount:1];
 #ifdef DEBUG
-    queue.isSerial = YES;
+    queue.associatedModel.isSerial = YES;
 #endif
     return queue;
 }
@@ -93,25 +84,63 @@
     }
 }
 
-#ifdef DEBUG
+- (void)addObserverWithType:(AUUOperationQueueObserverType)type observerBlock:(void (^)(NSOperationQueue *))observerBlock {
+    _AUUOperationChangeResponseModel *responseModel = [self.associatedModel responseModelWithType:type];
+    responseModel.block = [observerBlock copy];
+    
+    [self addOperationsObserver];
+}
 
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
-    if (keyPath && [keyPath isEqualToString:@"maxConcurrentOperationCount"]) {
-        if (self.isSerial) {
-            NSAssert(0, @"对于串行队列最好不要自己设置并行线程数，如果想要并行的队列，请选择其他方法。");
-        }
+- (void)addObserverWithType:(AUUOperationQueueObserverType)type observerTarget:(id)target action:(SEL)action {
+    _AUUOperationChangeResponseModel *responseModel = [self.associatedModel responseModelWithType:type];
+    responseModel.target = target;
+    responseModel.action = action;
+    
+    [self addOperationsObserver];
+}
+
+- (void)addOperationsObserver {
+    if (!self.associatedModel.addedOperationsObserver) {
+        [self addObserver:self forKeyPath:@"operations" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:nil];
+        self.associatedModel.addedOperationsObserver = YES;
     }
 }
 
-- (void)setIsSerial:(BOOL)isSerial {
-    objc_setAssociatedObject(self, @selector(isSerial), @(isSerial), OBJC_ASSOCIATION_ASSIGN);
-}
-
-- (BOOL)isSerial {
-    id obj = objc_getAssociatedObject(self, @selector(isSerial));
-    return obj ? [obj boolValue] : NO;
-}
-
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
+#ifdef DEBUG
+    if (keyPath && [keyPath isEqualToString:@"maxConcurrentOperationCount"]) {
+        if (self.associatedModel.isSerial) {
+            NSAssert(0, @"对于串行队列最好不要自己设置并行线程数，如果想要并行的队列，请选择其他方法。");
+        }
+    } else
 #endif
+        if ([keyPath isEqualToString:@"operations"]) {
+            //            NSLog(@"change:%@ \n operations:%@ \ncount:%@", change, self.operations, @(self.operationCount));
+            //            NSLog(@"-----------------------------");
+            
+            [self callbackWithObserverType:AUUOperationQueueObserverTypeOperationChanged];
+            
+            if (self.operationCount == 0) {
+                [self callbackWithObserverType:AUUOperationQueueObserverTypeAllCompleted];
+            }
+        } else {
+            [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+        }
+    
+}
 
+- (void)callbackWithObserverType:(AUUOperationQueueObserverType)type {
+    _AUUOperationChangeResponseModel *responseModel = [self.associatedModel responseModelWithType:type];
+    
+    if (responseModel.block) {
+        responseModel.block(self);
+    }
+    
+    if (responseModel.target && responseModel.action && [responseModel.target respondsToSelector:responseModel.action]) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+        [responseModel.target performSelector:responseModel.action withObject:self];
+#pragma clang diagnostic pop
+    }
+}
 @end
