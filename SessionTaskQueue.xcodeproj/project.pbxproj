@@ -18,6 +18,8 @@
 		1C183524201CCE0F00B8179A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C183523201CCE0F00B8179A /* Assets.xcassets */; };
 		1C183527201CCE0F00B8179A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C183525201CCE0F00B8179A /* LaunchScreen.storyboard */; };
 		1C18352D201CD4E700B8179A /* OperationQueue+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C18352C201CD4E700B8179A /* OperationQueue+Helper.swift */; };
+		1C18352E201EC2C900B8179A /* AsyncTaskQueue.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C183508201CC7EF00B8179A /* AsyncTaskQueue.framework */; };
+		1C18352F201EC2C900B8179A /* AsyncTaskQueue.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1C183508201CC7EF00B8179A /* AsyncTaskQueue.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1C51712E2010F3BC004C8401 /* SessionTaskQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C51712C2010F3BC004C8401 /* SessionTaskQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1C5171342010F3EB004C8401 /* AUUSessionTaskOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C5171322010F3EB004C8401 /* AUUSessionTaskOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1C5171352010F3EB004C8401 /* AUUSessionTaskOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5171332010F3EB004C8401 /* AUUSessionTaskOperation.m */; };
@@ -38,6 +40,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		1C183530201EC2C900B8179A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1C51711E2010F39B004C8401 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1C183507201CC7EF00B8179A;
+			remoteInfo = AsyncTaskQueue;
+		};
 		1C51715A2010F8FA004C8401 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 1C51711E2010F39B004C8401 /* Project object */;
@@ -48,6 +57,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		1C183532201EC2CA00B8179A /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				1C18352F201EC2C900B8179A /* AsyncTaskQueue.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1C51715C2010F8FA004C8401 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -113,6 +133,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C18352E201EC2C900B8179A /* AsyncTaskQueue.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,10 +290,12 @@
 				1C183516201CCE0F00B8179A /* Sources */,
 				1C183517201CCE0F00B8179A /* Frameworks */,
 				1C183518201CCE0F00B8179A /* Resources */,
+				1C183532201EC2CA00B8179A /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				1C183531201EC2C900B8179A /* PBXTargetDependency */,
 			);
 			name = AsyncTaskDemo;
 			productName = AsyncTaskDemo;
@@ -332,7 +355,7 @@
 					};
 					1C183519201CCE0F00B8179A = {
 						CreatedOnToolsVersion = 9.2;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					1C5171282010F3BC004C8401 = {
 						CreatedOnToolsVersion = 9.2;
@@ -447,6 +470,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		1C183531201EC2C900B8179A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1C183507201CC7EF00B8179A /* AsyncTaskQueue */;
+			targetProxy = 1C183530201EC2C900B8179A /* PBXContainerItemProxy */;
+		};
 		1C51715B2010F8FA004C8401 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 1C5171282010F3BC004C8401 /* SessionTaskQueue */;
@@ -546,7 +574,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = AsyncTaskQueue/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -613,7 +641,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = AsyncTaskQueue/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jyhu.AsyncTaskQueue;
@@ -632,6 +660,7 @@
 		1C18352A201CCE0F00B8179A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -660,9 +689,10 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = NFE8L9VTV6;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -680,12 +710,14 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = AsyncTaskDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jyhu.AsyncTaskDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "35cce438-3c9a-4123-a310-ceec4c8c52c4";
+				PROVISIONING_PROFILE_SPECIFIER = "hujinyou-mbp-dev-all-170329";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -697,6 +729,7 @@
 		1C18352B201CCE0F00B8179A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -725,9 +758,10 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -739,11 +773,12 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = AsyncTaskDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jyhu.AsyncTaskDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 4.0;

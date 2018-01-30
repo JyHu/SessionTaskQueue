@@ -1,24 +1,106 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="etX-xY-fca">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="4ve-T1-Vzs">
+            <objects>
+                <navigationController id="etX-xY-fca" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gdX-G4-KXh">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="pbW-KR-tmg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6FJ-lp-iRD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-697" y="90"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="AsyncTaskDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u6n-bx-ItE">
+                                <rect key="frame" x="16" y="84" width="343" height="50"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="k4i-cU-g27"/>
+                                </constraints>
+                                <state key="normal" title="Concurrent"/>
+                                <connections>
+                                    <action selector="testConcurrent:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Z8F-mg-hqE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="juG-PW-bUN">
+                                <rect key="frame" x="16" y="154" width="343" height="50"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="0Kx-L2-rCI"/>
+                                </constraints>
+                                <state key="normal" title="Serial"/>
+                                <connections>
+                                    <action selector="testSerial:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vj7-8d-XQN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d8v-bE-fRA">
+                                <rect key="frame" x="16" y="224" width="343" height="50"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Wr4-4t-BeK"/>
+                                </constraints>
+                                <state key="normal" title="Part Temp Serial"/>
+                                <connections>
+                                    <action selector="testTempSerial:" destination="BYZ-38-t0r" eventType="touchUpInside" id="O5c-Ba-FqR"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eUc-Sb-Ibb">
+                                <rect key="frame" x="16" y="294" width="343" height="50"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="ee7-l2-Qti"/>
+                                </constraints>
+                                <state key="normal" title="Concurrent Dependency"/>
+                                <connections>
+                                    <action selector="testDependency:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PwT-X3-dVe"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="juG-PW-bUN" secondAttribute="trailing" constant="16" id="0ih-3B-8TH"/>
+                            <constraint firstItem="eUc-Sb-Ibb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="3cC-cL-WDZ"/>
+                            <constraint firstItem="eUc-Sb-Ibb" firstAttribute="top" secondItem="d8v-bE-fRA" secondAttribute="bottom" constant="20" id="4KM-Sw-Bkm"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="d8v-bE-fRA" secondAttribute="trailing" constant="16" id="5CW-yA-9EF"/>
+                            <constraint firstItem="u6n-bx-ItE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="CSI-rh-xeX"/>
+                            <constraint firstItem="juG-PW-bUN" firstAttribute="top" secondItem="u6n-bx-ItE" secondAttribute="bottom" constant="20" id="LSD-P4-Bo9"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="u6n-bx-ItE" secondAttribute="trailing" constant="16" id="Yja-dH-ypm"/>
+                            <constraint firstItem="juG-PW-bUN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Zxq-MC-ush"/>
+                            <constraint firstItem="u6n-bx-ItE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="ad2-zF-jR9"/>
+                            <constraint firstItem="d8v-bE-fRA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="bia-HV-wDC"/>
+                            <constraint firstItem="d8v-bE-fRA" firstAttribute="top" secondItem="juG-PW-bUN" secondAttribute="bottom" constant="20" id="fPu-Hd-tLp"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="eUc-Sb-Ibb" secondAttribute="trailing" constant="16" id="qlY-bk-4ql"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="U8y-m9-BkL"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="15" y="90"/>
         </scene>
     </scenes>
 </document>

@@ -11,24 +11,26 @@ import UIKit
 ///
 /// - Changed: 当有变化的时候就回调
 /// - AllCompleted: 当所有任务都结束以后回调
-enum OperationQueueObserverType {
+public enum OperationQueueObserverType {
     case Changed
     case AllCompleted
 }
 
-extension Operation {
+public extension Operation {
     
     /// 给当前的Operation添加多个依赖
     ///
     /// - Parameter operations: Operation列表
-    public func addDependencies(_ operations:[Operation]) {
-        for op in operations {
-            self.addDependency(op)
+    public func addDependencies(_ operations:[Operation]?) {
+        if let ops = operations {
+            for op in ops {
+                self.addDependency(op)
+            }
         }
     }
 }
 
-extension OperationQueue {
+public extension OperationQueue {
     
     /// 单例并行队列
     /// `maxConcurrentOperationCount`默认设置为10
@@ -67,8 +69,8 @@ extension OperationQueue {
     /// 完成一个operation任务，主要是针对`sessionTask`因为无法监听其过程，所以，需要再任务完成以后调用这个方法来通知队列任务完成
     ///
     /// - Parameter operation: SessionTaskOperation
-    public func completeOperation(_ operation:Operation?) {
-        if let op = operation as? SessionTaskOperation {
+    public func completeOperation(_ operation:SessionTaskOperation?) {
+        if let op = operation {
             op.completeExecute()
         }
     }
@@ -77,11 +79,11 @@ extension OperationQueue {
     ///
     /// - Parameter sessionTask: sessionTask
     /// - Returns: SessiontaskOperation
-    public func operationFrom(_ sessionTask:URLSessionTask) -> Operation? {
+    public func operationFrom(_ sessionTask:URLSessionTask) -> SessionTaskOperation? {
         for operation in self.operations {
             if operation.isKind(of: SessionTaskOperation.self) {
                 if (operation as! SessionTaskOperation).sessionTask?.taskIdentifier == sessionTask.taskIdentifier {
-                    return operation
+                    return (operation as! SessionTaskOperation)
                 }
             }
         }
@@ -99,7 +101,7 @@ extension OperationQueue {
     }
 }
 
-extension OperationQueue {
+public extension OperationQueue {
     
     /// 添加一个队列任务的监听
     ///

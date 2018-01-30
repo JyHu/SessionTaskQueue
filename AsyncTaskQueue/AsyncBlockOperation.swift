@@ -7,23 +7,23 @@
 
 import UIKit
 
-typealias AsyncOperationTask = ((_ finished : inout Bool) -> Void)
+public typealias AsyncOperationTask = ((_ finished : inout Bool) -> Void)
 
-class AsyncBlockOperation: Operation {
+public class AsyncBlockOperation: Operation {
     
     private var asyncTask:AsyncOperationTask?
     
-    init(asyncTask: @escaping AsyncOperationTask) {
+    public init(asyncTask: @escaping AsyncOperationTask) {
         super.init()
         self.asyncTask = asyncTask
     }
     
-    override func cancel() {
+    override public func cancel() {
         self.asyncTask = nil
         super.cancel()
     }
     
-    override func main() {
+    override public func main() {
         if let task = self.asyncTask {
             var finished = false
             task(&finished)

@@ -10,7 +10,7 @@ import UIKit
 private let _OperationFinishedKey = "isFinished"
 private let _OperationExecutingKey = "isExecuting"
 
-class SessionTaskOperation: Operation {
+public class SessionTaskOperation: Operation {
     
     private var _task:URLSessionTask?
     
@@ -23,13 +23,13 @@ class SessionTaskOperation: Operation {
         return self._task
     }
     
-    init(task:URLSessionTask) {
+    public init(task:URLSessionTask) {
         super.init()
         self._task = task
     }
     
-    override func start() {
-        if self.isCancelled {
+    override public func start() {
+        guard !self.isCancelled else {
             self.willChangeValue(forKey: _OperationFinishedKey)
             self.taskFinished = true
             self.didChangeValue(forKey: _OperationFinishedKey)
@@ -45,13 +45,13 @@ class SessionTaskOperation: Operation {
         self.main()
     }
     
-    override func main() {
+    override public func main() {
         if let task = self.sessionTask {
             task.resume()
         }
     }
     
-    override func cancel() {
+    override public func cancel() {
         if let task = self.sessionTask {
             task.cancel()
         }
@@ -59,15 +59,15 @@ class SessionTaskOperation: Operation {
         super.cancel()
     }
     
-    override var isAsynchronous: Bool {
+    override public var isAsynchronous: Bool {
         return true
     }
     
-    override var isExecuting: Bool {
+    override public var isExecuting: Bool {
         return self.taskExecuting
     }
     
-    override var isFinished: Bool {
+    override public var isFinished: Bool {
         return self.taskFinished
     }
     
