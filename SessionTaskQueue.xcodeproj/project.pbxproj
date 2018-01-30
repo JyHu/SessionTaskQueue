@@ -10,8 +10,6 @@
 		1C08BAD020132E41002EE671 /* AUUAsyncBlockOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C08BACE20132E41002EE671 /* AUUAsyncBlockOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1C08BAD120132E41002EE671 /* AUUAsyncBlockOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C08BACF20132E41002EE671 /* AUUAsyncBlockOperation.m */; };
 		1C18350C201CC7EF00B8179A /* AsyncTaskQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C18350A201CC7EF00B8179A /* AsyncTaskQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1C183513201CC83500B8179A /* SessionTaskOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C183510201CC83500B8179A /* SessionTaskOperation.swift */; };
-		1C183514201CC83500B8179A /* AsyncBlockOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C183511201CC83500B8179A /* AsyncBlockOperation.swift */; };
 		1C18351D201CCE0F00B8179A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C18351C201CCE0F00B8179A /* AppDelegate.swift */; };
 		1C18351F201CCE0F00B8179A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C18351E201CCE0F00B8179A /* ViewController.swift */; };
 		1C183522201CCE0F00B8179A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C183520201CCE0F00B8179A /* Main.storyboard */; };
@@ -20,6 +18,7 @@
 		1C18352D201CD4E700B8179A /* OperationQueue+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C18352C201CD4E700B8179A /* OperationQueue+Helper.swift */; };
 		1C18352E201EC2C900B8179A /* AsyncTaskQueue.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C183508201CC7EF00B8179A /* AsyncTaskQueue.framework */; };
 		1C18352F201EC2C900B8179A /* AsyncTaskQueue.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1C183508201CC7EF00B8179A /* AsyncTaskQueue.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1C18353E20206E8E00B8179A /* AsyncOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C18353D20206E8E00B8179A /* AsyncOperations.swift */; };
 		1C51712E2010F3BC004C8401 /* SessionTaskQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C51712C2010F3BC004C8401 /* SessionTaskQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1C5171342010F3EB004C8401 /* AUUSessionTaskOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C5171322010F3EB004C8401 /* AUUSessionTaskOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1C5171352010F3EB004C8401 /* AUUSessionTaskOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5171332010F3EB004C8401 /* AUUSessionTaskOperation.m */; };
@@ -87,8 +86,6 @@
 		1C183508201CC7EF00B8179A /* AsyncTaskQueue.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AsyncTaskQueue.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C18350A201CC7EF00B8179A /* AsyncTaskQueue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AsyncTaskQueue.h; sourceTree = "<group>"; };
 		1C18350B201CC7EF00B8179A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1C183510201CC83500B8179A /* SessionTaskOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionTaskOperation.swift; sourceTree = "<group>"; };
-		1C183511201CC83500B8179A /* AsyncBlockOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncBlockOperation.swift; sourceTree = "<group>"; };
 		1C18351A201CCE0F00B8179A /* AsyncTaskDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AsyncTaskDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C18351C201CCE0F00B8179A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1C18351E201CCE0F00B8179A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -97,6 +94,7 @@
 		1C183526201CCE0F00B8179A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1C183528201CCE0F00B8179A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1C18352C201CD4E700B8179A /* OperationQueue+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OperationQueue+Helper.swift"; sourceTree = "<group>"; };
+		1C18353D20206E8E00B8179A /* AsyncOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncOperations.swift; sourceTree = "<group>"; };
 		1C5171292010F3BC004C8401 /* SessionTaskQueue.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SessionTaskQueue.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C51712C2010F3BC004C8401 /* SessionTaskQueue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SessionTaskQueue.h; sourceTree = "<group>"; };
 		1C51712D2010F3BC004C8401 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -159,8 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				1C18350A201CC7EF00B8179A /* AsyncTaskQueue.h */,
-				1C183511201CC83500B8179A /* AsyncBlockOperation.swift */,
-				1C183510201CC83500B8179A /* SessionTaskOperation.swift */,
+				1C18353D20206E8E00B8179A /* AsyncOperations.swift */,
 				1C18352C201CD4E700B8179A /* OperationQueue+Helper.swift */,
 				1C18350B201CC7EF00B8179A /* Info.plist */,
 			);
@@ -430,9 +427,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1C183514201CC83500B8179A /* AsyncBlockOperation.swift in Sources */,
-				1C183513201CC83500B8179A /* SessionTaskOperation.swift in Sources */,
 				1C18352D201CD4E700B8179A /* OperationQueue+Helper.swift in Sources */,
+				1C18353E20206E8E00B8179A /* AsyncOperations.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

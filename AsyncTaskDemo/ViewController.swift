@@ -18,10 +18,16 @@ class ViewController: UIViewController {
     
     @IBAction func testConcurrent(_ sender: Any) {
         testFor(OperationQueue.concurrent)
+        OperationQueue.concurrent.addObserverWith(.Changed) { queue in
+            print("lasted -> \(queue.operationCount)");
+        }
     }
     
     @IBAction func testSerial(_ sender: Any) {
         testFor(OperationQueue.serial)
+        OperationQueue.serial.addObserverWith(.Changed) { queue in
+            print("lasted -> \(queue.operationCount)");
+        }
     }
     
     @IBAction func testTempSerial(_ sender: Any) {
@@ -46,23 +52,22 @@ class ViewController: UIViewController {
             let u1 = "http://f.hiphotos.baidu.com/image/pic/item/503d269759ee3d6db032f61b48166d224e4ade6e.jpg"
             let u2 = "https://github.com/casatwy/RTNetworking/archive/master.zip"
             let request = URLRequest(url: URL(string: arc4random_uniform(2) == 1 ? u1 : u2)!)
+            
             var task:URLSessionTask!
             task = URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
                 queue.completeSessionTask(task)
-                print("task: \(index)/\(queue.operationCount)  ->  \(task.currentRequest?.url?.absoluteString)")
+                print("task: \(index)/\(queue.operationCount)  ->  \(String(describing: task.currentRequest?.url?.absoluteString))")
                 if queue.operationCount == 0 {
                     print("========================");
                 }
             })
             operation = SessionTaskOperation(task: task)
         } else {
-            operation = AsyncBlockOperation(asyncTask: { finished in
-                var finishe = finished
-                let t = UInt64(arc4random_uniform(10))
-//                DispatchQueue.main.asyncAfter(deadline: .now() + t, execute: {
-//                    print("task: \(index)/\(queue.operationCount)  ->  \(t)")
-//                    finishe = true
-//                })
+            operation = AsyncBlockOperation(asyncTask: {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+                    queue.completeOperation(operation as? OperationTaskProtocol)
+                    print("block: \(index)/\(queue.operationCount)")
+                })
             })
         }
         

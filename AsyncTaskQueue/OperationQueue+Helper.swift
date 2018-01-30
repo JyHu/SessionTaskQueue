@@ -55,7 +55,7 @@ public extension OperationQueue {
     ///
     /// - Parameter asyncBlock: 异步任务
     ///         finished: 当设置为True的时候表示结束闭包任务
-    public func addAsyncOperation(_ asyncBlock:@escaping ((_ finished : inout Bool) -> Void)) {
+    public func addAsyncOperation(_ asyncBlock: @escaping (() -> Void)) {
         self.addOperation(AsyncBlockOperation(asyncTask: asyncBlock))
     }
     
@@ -69,7 +69,7 @@ public extension OperationQueue {
     /// 完成一个operation任务，主要是针对`sessionTask`因为无法监听其过程，所以，需要再任务完成以后调用这个方法来通知队列任务完成
     ///
     /// - Parameter operation: SessionTaskOperation
-    public func completeOperation(_ operation:SessionTaskOperation?) {
+    public func completeOperation(_ operation: OperationTaskProtocol?) {
         if let op = operation {
             op.completeExecute()
         }
